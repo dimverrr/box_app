@@ -1,5 +1,4 @@
 *.env
-*.json
 __pycache__/
 db.sqlite3
 /boxes_app/migrations/0*.py

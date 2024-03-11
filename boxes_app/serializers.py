@@ -1,11 +1,5 @@
 from rest_framework import serializers
-from .models import (
-    User,
-    Box,
-    Notification,
-    UserBalance,
-    Operation,
-)
+from .models import User, Box, UserNotification, UserBalance, Operation, UserBox
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -32,7 +26,13 @@ class OperationsSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class NotificationSerializer(serializers.ModelSerializer):
+class UserNotificationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Notification
+        model = UserNotification
+        fields = "__all__"
+
+
+class UserBoxSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserBox
         fields = "__all__"

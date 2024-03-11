@@ -4,7 +4,8 @@ from .models import UserBox, UserNotification, Notification
 from django.db import transaction
 
 
-box_is_closed = Signal(providing_args=["box_id"])
+box_is_closed = Signal()
+box_is_closed.providing_args = ["box_id"]
 
 
 @receiver(box_is_closed)
@@ -20,11 +21,9 @@ def closed_box_notification(sender, **kwargs):
             user_box.save()
 
             user_notification = UserNotification(
-                user=user_box.user, notification=notification.id
+                user=user_box.user, notification=notification
             )
             user_notification.save()
-
-    # print(f"Box with id {box_id} is closed")
 
 
 # Connecting recievers & signals
