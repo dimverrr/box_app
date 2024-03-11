@@ -76,14 +76,32 @@
 
 # Інформація щодо реалізації:
   - У папці box_app/fixtures є файл sample_data.json, там знаходиться тестова дата, а саме:
-    - Адмін (логін:admin пароль: 12345)
+    - Адмін (логін: admin пароль: 12345)
     - 2 Юзери
     - 2 Бокси (один можна купити за монету №1, а інший за монету №2)
     - 2 Монети
     - 2 Юзер Баланси (Юзер №1 має 100 монет №1, Юзер №2 має 200 монет №2)
     - 1 Сповіщення (при закритті боксу, який відкривав юзер)
-    
-  Завантажити файл можна командою
-```python
-  python3 manage.py loaddate sample_data.json
-```
+  
+ # Розгортання проекту локально
+   1. Завантажити та запустити [Docker](https://www.docker.com/).
+   2. Завантажити репозиторій
+   3. Відкрити папку з репозиторієм
+   4. Запустити команду
+      ```python
+      docker-compose up -d --build
+      ```
+   5. Потім запустити команди
+      
+      ``` python
+      docker-compose exec web python manage.py makemigrations
+      ```
+
+      ```python
+      docker-compose exec web python manage.py migrate
+      ```
+      
+  7. Завантажити файл з тестовими даними можна командою
+     ```python
+     docker-compose exec web python manage.py loaddate sample_data.json
+     ```
