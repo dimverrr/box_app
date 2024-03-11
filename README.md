@@ -87,11 +87,12 @@
    1. Завантажити та запустити [Docker](https://www.docker.com/).
    2. Завантажити репозиторій
    3. Відкрити папку з репозиторієм
-   4. Запустити команду
+   4. Створити .env файл (за приклад можна взяти .env.example файл)
+   5. Запустити команду
       ```python
       docker-compose up -d --build
       ```
-   5. Потім запустити команди
+   6. Потім запустити команди
       
       ``` python
       docker-compose exec web python manage.py makemigrations
