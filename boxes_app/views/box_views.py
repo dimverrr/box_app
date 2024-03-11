@@ -52,7 +52,7 @@ def get_box_by_id(request, box_id):
 
 
 @swagger_auto_schema(
-    method="put",
+    method="post",
     operation_description="Buy box using user_id and box_id",
 )
 @api_view(["POST"])
