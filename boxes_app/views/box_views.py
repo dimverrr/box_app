@@ -55,7 +55,7 @@ def get_box_by_id(request, box_id):
     method="put",
     operation_description="Buy box using user_id and box_id",
 )
-@api_view(["PUT"])
+@api_view(["POST"])
 def buy_box(request, user_id, box_id):
     box = Box.objects.filter(id=box_id, is_available=True).first()
 
