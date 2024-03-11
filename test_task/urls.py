@@ -22,9 +22,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Password Manager",
+        title="Box App",
         default_version="v1",
-        description="Password Manager",
+        description="Box App",
         contact=openapi.Contact(email="dimverrr@gmail.com"),
     ),
     public=True,
