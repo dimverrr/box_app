@@ -21,7 +21,6 @@ class User(models.Model):
 class Coin(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
-    rate = models.IntegerField()
     is_available = models.BooleanField(default=True)
     created_at = models.DateTimeField(default=timezone.now, editable=False)
 

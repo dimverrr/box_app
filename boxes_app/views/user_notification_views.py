@@ -12,7 +12,11 @@ from drf_yasg.utils import swagger_auto_schema
 )
 @api_view(["GET"])
 def get_user_notifications(request, user_id):
-    user_notifications = UserNotification.objects.filter(user_id=user_id).all()
+    user_notifications = (
+        UserNotification.objects.filter(user_id=user_id)
+        .select_related("notification")
+        .all()
+    )
     if not user_notifications:
         return Response(
             {"User does not have any notifications"}, status=status.HTTP_404_NOT_FOUND
